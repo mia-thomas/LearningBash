@@ -17,3 +17,5 @@ do
  done
 
 
+numberOfAffirmations=$(wc -l Affirmations.txt)
+echo "Thanks for using our service, to generate your Affirmations, we've put $numberOfAffirmations in the file Affirmations.txt"
