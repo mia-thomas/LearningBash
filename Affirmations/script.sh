@@ -1,4 +1,5 @@
 # Affirmations Task - Objective:
+
 echo "Hello, how many Affirmations would you like to receive today?"
 read affirmationRequest
 i=0
@@ -12,3 +13,8 @@ done
 
 numberOfAffirmations=$(wc -l Affirmations.txt)
 echo "Thanks for using our service, to generate your Affirmations, we've put $numberOfAffirmations in the file Affirmations.txt"
+
+# Added objectives to fix issues: 
+# Silence curl output
+# Use Array to fix the file overwrite issue
+# Use gitignore, to avoid uploading affirmations.txt to git repo
