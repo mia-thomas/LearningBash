@@ -3,18 +3,24 @@
 echo "Hello, how many Affirmations would you like to receive today?"
 read affirmationRequest
 i=0
+declare -a affirmations=()
 
 while [ $i -lt $affirmationRequest ]
-do
-    websiteOutput=$(curl "https://www.affirmations.dev/")
-    websiteOutput=$(echo "${websiteOutput}" | jq '.affirmation' >> Affirmations.txt)
+do 
+     websiteOutput=$(curl -s "https://www.affirmations.dev/")
+     affirmations+=($(echo "${websiteOutput}" | jq '.affirmation'))
     i=$[$i+1]
 done
 
-numberOfAffirmations=$(wc -l Affirmations.txt)
-echo "Thanks for using our service, to generate your Affirmations, we've put $numberOfAffirmations in the file Affirmations.txt"
+printf "%s\n" "${affirmations[@]}" > Affirmations.txt 
 
-# Added objectives to fix issues: 
-# Silence curl output
-# Use Array to fix the file overwrite issue
 # Use gitignore, to avoid uploading affirmations.txt to git repo
+
+touch .gitignore
+
+
+
+
+
+
+
