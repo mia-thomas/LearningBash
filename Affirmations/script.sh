@@ -14,9 +14,8 @@ done
 
 printf "%s\n" "${affirmations[@]}" > Affirmations.txt 
 
-# Use gitignore, to avoid uploading affirmations.txt to git repo
 
-touch .gitignore
+
 
 
 
